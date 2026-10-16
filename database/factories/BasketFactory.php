@@ -3,8 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Basket;
-use App\Models\Product;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,8 +19,8 @@ class BasketFactory extends Factory
     {
         return [
             'time' => fake()->dateTime(),
-            'product_id' => Product::query()->inRandomOrder()->value('id') ?? Product::factory(),
-            'user_id' => User::query()->inRandomOrder()->value('id') ?? User::factory(),
+            'product_id' => fake()->numberBetween(1, 3),
+            'user_id' => fake()->numberBetween(1, 10),
         ];
     }
 }
